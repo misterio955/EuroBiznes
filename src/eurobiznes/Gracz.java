@@ -5,14 +5,18 @@
  */
 package eurobiznes;
 
+import eurobiznes.plansza.Plansza;
+
 /**
  *
  * @author Basian
  */
 public class Gracz {
     
-    int AktualnePole=4;
-
+    int AktualnePole=1;
+    Plansza pla = new Plansza();
+    int budzet=3000;
+    int DniWiezienia=0;
     
     public int getAktualnePole() {
         return AktualnePole;

@@ -15,9 +15,11 @@ public class Metody {
     int Kostka1,Kostka2;
     Gracz gracz = new Gracz();
     
+    
+    
     public void rzutKostkami(){
         Random generator = new Random();
-       System.out.println(gracz.AktualnePole);
+       
         this.Kostka1=generator.nextInt(6)+1;        
         this.Kostka2=generator.nextInt(6)+1;
         int sumaKostek=Kostka1+Kostka2;
@@ -28,13 +30,15 @@ public class Metody {
           gracz.setAktualnePole(gracz.getAktualnePole()+sumaKostek); 
         }
      
-        System.out.println(gracz.AktualnePole);
+        //System.out.println(gracz.AktualnePole);
     }
     
     public void idzieszDoWiezienia(){
-        gracz.setAktualnePole(31);
+        gracz.setAktualnePole(11);
     }
     
-
-    
+    public void idzieszDoWiednia(){
+        gracz.setAktualnePole(40);
+    }
+   
 }
