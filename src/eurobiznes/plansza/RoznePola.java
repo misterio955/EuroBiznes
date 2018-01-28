@@ -5,36 +5,51 @@
  */
 package eurobiznes.plansza;
 
+import java.io.IOException;
 
-public abstract class Pole {
-
-
-   String nazwa;
-   int numerPola;
-   String wlasciciel=null;
-   
+/**
+ *
+ * @author Basian
+ */
+public class RoznePola extends Pole{
+    
+    
+    
+     public void uzupelnieniePlanszyRoznymi(Pole[] plansza) throws IOException {
+     
+      
+        Koleje wodociagi = new Koleje("Elektrownia atomowa");
+        Koleje elektrownia = new Koleje("Sieć wodociągów");
+         
+         
+         
+     }
+    
+    @Override
     public String getNazwa() {
         return nazwa;
     }
 
+    @Override
     public void setNazwa(String nazwa) {
         this.nazwa = nazwa;
     }
 
+    @Override
     public int getNumerPola() {
         return numerPola;
     }
 
+    @Override
     public void setNumerPola(int numerPola) {
         this.numerPola = numerPola;
     }
 
+    
+    @Override
     public void setWlasciciel(String wlasciciel) {
         this.wlasciciel = wlasciciel;
     }
     
-   
-  
+    
 }
-
-

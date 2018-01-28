@@ -17,14 +17,16 @@ public class EuroBiznes {
 
     /**
      * @param args the command line arguments
+     * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
         Miasto mia = new Miasto();
-        
-        
+        Gracz gracz = new Gracz("dzik");
+        gracz.setAktualnePole(6);
         Plansza pla = new Plansza();
         pla.uzupelnieniePlanszy();
-        pla.ustawWlasciciela(mia,"dzik");
+        pla.ustawWlasciciela(gracz.getAktualnePole(),gracz.getNazwaGracza());
+        
         
     }
     

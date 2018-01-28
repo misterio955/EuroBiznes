@@ -5,30 +5,61 @@
  */
 package eurobiznes.plansza;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 /**
  *
  * @author Basian
  */
 public class Miasto extends Pole {
 
-    String kraj;
-    int cena;
-    int postoj;
-    int postoj1dom;
-    int postoj2dom;
-    int postoj3dom;
-    int postojHotel;
-    
+    private String kraj;
+    private int cena;
+    private int postoj;
+    private int postoj1dom;
+    private int postoj2dom;
+    private int postoj3dom;
+    private int postojHotel;
+  
+public void uzupelnieniePlanszyMiastami(Pole [] plansza, String sciezka) throws IOException {
 
-//    public Miasto(int numerPola, String nazwa, int cena, int postoj, int postoj1dom, int postoj2dom, int postoj3dom, int postojHotel) {
-//        super(nazwa, numerPola);
-//        this.cena = cena;
-//        this.postoj = postoj;
-//        this.postoj1dom = postoj1dom;
-//        this.postoj2dom = postoj2dom;
-//        this.postoj3dom = postoj3dom;
-//        this.postojHotel = postojHotel;
-//    }
+    String first_read[] = null;
+    
+        try (FileReader filereader = new FileReader(sciezka)) {
+            BufferedReader buffReader = new BufferedReader(filereader);
+
+            String textLine = buffReader.readLine();
+            do {
+                Miasto miasto = new Miasto();
+                first_read = textLine.split(",");
+                miasto.setNumerPola(Integer.valueOf(first_read[0]));
+                miasto.setNazwa(first_read[1]);
+                miasto.setCena(Integer.valueOf(first_read[2]));
+                miasto.setPostoj(Integer.valueOf(first_read[3]));
+                miasto.setPostoj1dom(Integer.valueOf(first_read[4]));
+                miasto.setPostoj2dom(Integer.valueOf(first_read[5]));
+                miasto.setPostoj3dom(Integer.valueOf(first_read[6]));
+                miasto.setPostojHotel(Integer.valueOf(first_read[7]));
+                miasto.setKraj(first_read[8]);
+                plansza[Integer.valueOf(first_read[0]) - 1] = miasto;
+
+                textLine = buffReader.readLine();
+            } while (textLine != null);
+        } catch (FileNotFoundException e) {
+
+            System.err.println("Brak odpowiedniej scieżki pliku");
+            System.exit(1);
+        }
+        
+//        for(Pole pole:plansza){
+//         System.out.println(pole);
+//        }
+
+    }
+
     @Override
     public void setWlasciciel(String wlasciciel) {
         this.wlasciciel = wlasciciel;
@@ -106,6 +137,5 @@ public class Miasto extends Pole {
                 + ", postoj2dom= " + getPostoj2dom() + ", postoj3dom= " + getPostoj3dom() + ", postojHotel= " + getPostojHotel() + ", wlasciciel= " + getWlasciciel() + '}';
     }
 
-  
 
 }

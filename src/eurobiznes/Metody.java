@@ -13,7 +13,7 @@ import java.util.Random;
  */
 public class Metody {
     int Kostka1,Kostka2;
-    Gracz gracz = new Gracz();
+    Gracz gracz = new Gracz("dzik");
     
     
     
